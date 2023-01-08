@@ -1,0 +1,14 @@
+<html>
+  <head>
+  <script src="https://cdn.jsdelivr.net/npm/ruby-head-wasm-wasi@0.5.0/dist/browser.script.iife.js"></script>
+  <script type="text/ruby">
+    require "js"
+    JS.eval("
+(async () => {
+  const response = await fetch(\"duckdb.rb\");
+  const ruby_script = await response.text()
+  rubyVM.evalAsync(ruby_script);
+})();
+    ")
+  </script>
+</html>
